@@ -1,89 +1,54 @@
 {
-  "name": "re-resizable",
-  "version": "4.11.0",
-  "description": "Resizable component for React.",
-  "title": "re-resizable",
-  "main": "./lib/index.es5.js",
-  "module": "./lib/index.js",
-  "jsnext:main": "./lib/index.js",
-  "keywords": [
-    "react",
-    "resize",
-    "resizable",
-    "component"
+  "_args": [
+    [
+      {
+        "raw": "re-resizable",
+        "scope": null,
+        "escapedName": "re-resizable",
+        "name": "re-resizable",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/jonatanvazquez/GitHub/odcreator-fronted"
+    ]
   ],
-  "scripts": {
-    "lint": "eslint src",
-    "flow": "flow",
-    "build:prod:main": "rollup -c scripts/prod.js",
-    "build:prod:es5": "rollup -c scripts/prod.es5.js",
-    "build": "npm-run-all --parallel build:prod:*",
-    "start": "npm-run-all --parallel storybook",
-    "test": "cross-env NODE_ENV='test' avaron test --renderer",
-    "test:ci": "npm run flow && npm run build",
-    "flow-copy": "flow-copy-source -v src lib && cp lib/index.js.flow lib/index.es5.js.flow ",
-    "prepublish": "npm run build && npm run flow && npm run flow-copy",
-    "storybook": "start-storybook -p 6066",
-    "build-storybook": "build-storybook",
-    "format": "prettier-eslint --write --single-quote --semi=true \"src/**/*.js\" ",
-    "deploy": "npm run build-storybook && gh-pages -d storybook-static"
+  "_from": "re-resizable@latest",
+  "_id": "re-resizable@4.1.2",
+  "_inCache": true,
+  "_location": "/re-resizable",
+  "_nodeVersion": "8.5.0",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/re-resizable-4.1.2.tgz_1512857611607_0.37226600060239434"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/bokuweb/react-resizable-box.git"
+  "_npmUser": {
+    "name": "bokuweb",
+    "email": "bokuweb12@gmail.com"
   },
-  "author": "bokuweb",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/bokuweb/react-resizable-box/issues"
+  "_npmVersion": "5.3.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "re-resizable",
+    "scope": null,
+    "escapedName": "re-resizable",
+    "name": "re-resizable",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
   },
-  "homepage": "https://github.com/bokuweb/react-resizable-box",
-  "devDependencies": {
-    "@storybook/addon-info": "3.4.11",
-    "@storybook/react": "3.4.11",
-    "avaron": "0.2.0",
-    "babel-eslint": "10.0.1",
-    "babel-plugin-external-helpers": "6.22.0",
-    "babel-plugin-transform-class-properties": "6.24.1",
-    "babel-plugin-transform-object-assign": "6.22.0",
-    "babel-plugin-transform-object-rest-spread": "6.26.0",
-    "babel-polyfill": "6.26.0",
-    "babel-preset-env": "1.7.0",
-    "babel-preset-es2015": "6.24.1",
-    "babel-preset-flow": "6.23.0",
-    "babel-preset-react": "6.24.1",
-    "babel-register": "6.26.0",
-    "cross-env": "5.2.0",
-    "eslint": "4.19.1",
-    "eslint-config-airbnb": "16.1.0",
-    "eslint-plugin-flowtype": "3.2.0",
-    "eslint-plugin-import": "2.14.0",
-    "eslint-plugin-jsx-a11y": "6.1.2",
-    "eslint-plugin-react": "7.11.1",
-    "flow-bin": "0.89.0",
-    "flow-copy-source": "2.0.2",
-    "flow-typed": "2.5.1",
-    "gh-pages": "2.0.1",
-    "npm-run-all": "4.1.5",
-    "prettier": "1.15.3",
-    "prettier-eslint": "8.8.2",
-    "prettier-eslint-cli": "4.7.1",
-    "react": "16.7.0",
-    "react-dom": "16.7.0",
-    "rollup": "0.65.2",
-    "rollup-plugin-babel": "3.0.7",
-    "rollup-plugin-commonjs": "9.2.0",
-    "rollup-plugin-node-globals": "1.4.0",
-    "rollup-plugin-node-resolve": "3.3.0",
-    "rollup-plugin-replace": "2.1.0",
-    "rollup-watch": "4.3.1",
-    "sinon": "7.2.2"
-  },
-  "typings": "./index.d.ts",
-  "files": [
-    "lib",
-    "index.d.ts"
+  "_requiredBy": [
+    "#USER",
+    "/"
   ],
+  "_resolved": "https://registry.npmjs.org/re-resizable/-/re-resizable-4.1.2.tgz",
+  "_shasum": "87490f3deea81532cf0836f9441c98395df24882",
+  "_shrinkwrap": null,
+  "_spec": "re-resizable",
+  "_where": "/Users/jonatanvazquez/GitHub/odcreator-fronted",
+  "author": {
+    "name": "bokuweb"
+  },
   "avaron": {
     "babel": "inherit",
     "require": [
@@ -92,5 +57,101 @@
     ],
     "fixture": "./test/fixture.html"
   },
-  "dependencies": {}
+  "bugs": {
+    "url": "https://github.com/bokuweb/react-resizable-box/issues"
+  },
+  "dependencies": {},
+  "description": "Resizable component for React.",
+  "devDependencies": {
+    "@storybook/addon-info": "^3.2.9",
+    "@storybook/react": "^3.2.8",
+    "avaron": "^0.0.12",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-assign": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "eslint": "^4.2.0",
+    "eslint-config-airbnb": "^15.0.2",
+    "eslint-plugin-flowtype": "^2.34.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.1.0",
+    "flow-bin": "^0.54.1",
+    "flow-copy-source": "^1.2.0",
+    "flow-typed": "^2.1.5",
+    "gh-pages": "^1.0.0",
+    "npm-run-all": "^4.1.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "rollup": "^0.49.2",
+    "rollup-plugin-babel": "3.0.2",
+    "rollup-plugin-commonjs": "^8.2.0",
+    "rollup-plugin-node-globals": "1.1.0",
+    "rollup-plugin-node-resolve": "3.0.0",
+    "rollup-plugin-replace": "^1.1.1",
+    "rollup-watch": "4.3.1",
+    "sinon": "^3.2.1"
+  },
+  "directories": {},
+  "dist": {
+    "integrity": "sha512-Z8p2RP+PEpg1NqDw+rKmyLorvhF7e2gY9rHmcxyckRPiKRwQGhcOurHgWvJLHKIFBoAduw5PqeV4L8n2I7siQQ==",
+    "shasum": "87490f3deea81532cf0836f9441c98395df24882",
+    "tarball": "https://registry.npmjs.org/re-resizable/-/re-resizable-4.1.2.tgz"
+  },
+  "files": [
+    "lib",
+    "index.d.ts"
+  ],
+  "gitHead": "b64573257eafadf51d619f1f39f47cdcf50ba8b2",
+  "homepage": "https://github.com/bokuweb/react-resizable-box",
+  "jsnext:main": "./lib/index.js",
+  "keywords": [
+    "react",
+    "resize",
+    "resizable",
+    "component"
+  ],
+  "license": "MIT",
+  "main": "./lib/index.es5.js",
+  "maintainers": [
+    {
+      "name": "bokuweb",
+      "email": "bokuweb12@gmail.com"
+    }
+  ],
+  "module": "./lib/index.js",
+  "name": "re-resizable",
+  "optionalDependencies": {},
+  "readme": "<p align=\"center\"><img src =\"https://github.com/bokuweb/re-resizable/blob/master/logo.png?raw=true\" /></p>\n\n<p align=\"center\">📏 A resizable component for React.</p>\n\n<p align=\"center\"><a href=\"https://circleci.com/gh/bokuweb/re-resizable/tree/master\">\n<img src=\"https://circleci.com/gh/bokuweb/re-resizable/tree/master.svg?style=svg\" alt=\"Build Status\" /></a>\n<a href=\"https://www.npmjs.com/package/re-resizable\">\n<img src=\"https://img.shields.io/npm/v/re-resizable.svg\" alt=\"Build Status\" /></a>\n<a href=\"https://www.npmjs.com/package/re-resizable\">\n<img src=\"https://img.shields.io/npm/dm/re-resizable.svg\" /></a>\n<a href=\"https://greenkeeper.io/\">\n<img src=\"https://badges.greenkeeper.io/bokuweb/re-resizable.svg\" /></a>\n</p>\n\n## Table of Contents\n\n- [Demo](#Demo)\n- [Install](#install)\n- [Usage](#usage)\n- [Props](#props)\n- [Method](#method)\n- [Test](#test)\n- [Related](#related)\n- [Changelog](#changelog)\n- [License](#license)\n\n## Demo\n\n![screenshot](https://github.com/bokuweb/re-resizable/blob/master/docs/screenshot.gif?raw=true)\n\n## Install\n\n``` sh\n$ npm install --save re-resizable\n```\n\n## Usage\n\n### Example with `defaultSize`\n\n``` javascript\n<Resizable\n  defaultSize={{\n    width:320,\n    height:200,\n  }}\n>\n  Sample with default size\n</Resizable>\n```\n\n### Example with `size`\n\n``` javascript\n<Resizable\n  size={{ width: this.state.width, height: this.state.height }}\n  onResizeStop={(e, direction, ref, d) => {\n    this.setState({\n      width: this.state.width + d.width,\n      height: this.state.height + d.height,\n    });\n  }}\n>\n  Sample with size\n</Resizable>\n```\n\n## Props\n\n#### `defaultSize?: { width: (number | string), height: (number | string) };`\n\nSpecifies the `width` and `height` that the dragged item should start at.\nFor example, you can set `300`, `'300px'`, `50%`.\nIf both `defaultSize` and `size` omitted, set `'auto'`.\n\n`defaultSize` will be ignored when `size` set.\n\n#### `size?: { width: (number | string), height: (number | string) };`\n\nThe `size` property is used to set the size of the component.\nFor example, you can set `300`, `'300px'`, `50%`.\n\nUse `size` if you need to control size state by yourself.\n\n#### `className?: string;`\n\nThe `className` property is used to set the custom `className` of a resizable component.\n\n#### `style?: { [key: string]: string };`\n\nThe `style` property is used to set the custom `style` of a resizable component.\n\n#### `minWidth?: number | string;`\n\nThe `minWidth` property is used to set the minimum width of a resizable component.\n\n#### `minHeight?: number | string;`\n\nThe `minHeight` property is used to set the minimum height of a resizable component.\n\n#### `maxWidth?: number | string;`\n\nThe `maxWidth` property is used to set the maximum width of a resizable component.\n\n#### `maxHeight?: number | string`;\n\nThe `maxHeight` property is used to set the maximum height of a resizable component.\n\n#### `grid?: [number, number];`\n\nThe `grid` property is used to specify the increments that resizing should snap to. Defaults to `[1, 1]`.\n\n#### `lockAspectRatio?: boolean | number;`\n\nThe `lockAspectRatio` property is used to lock aspect ratio.\nSet to `true` to lock the aspect ratio based on the initial size.\nSet to a numeric value to lock a specific aspect ratio (such as `16/9`).\nIf set to numeric, make sure to set initial height/width to values with correct aspect ratio.\nIf omitted, set `false`.\n\n#### `lockAspectRatioExtraWidth?: number;`\n\nThe `lockAspectRatioExtraWidth` property enables a resizable component to maintain an aspect ratio plus extra width.\nFor instance, a video could be displayed 16:9 with a 50px side bar.\nIf omitted, set `0`.\n\n#### `lockAspectRatioExtraHeight?: number;`\n\nThe `lockAspectRatioExtraHeight` property enables a resizable component to maintain an aspect ratio plus extra height.\nFor instance, a video could be displayed 16:9 with a 50px header bar.\nIf omitted, set `0`.\n\n#### `bounds?: ('window' | 'parent' | HTMLElement);`\n\nSpecifies resize boundaries.\n\n#### `handleStyles?: HandleStyles;`\n\nThe `handleStyles` property is used to override the style of one or more resize handles.\nOnly the axis you specify will have its handle style replaced.\nIf you specify a value for `right` it will completely replace the styles for the `right` resize handle,\nbut other handle will still use the default styles.\n\n#### `handleClasses?: HandleClassName;`\n\nThe `handleClasses` property is used to set the className of one or more resize handles.\n\n#### `handleWrapperStyle?: { [key: string]: string };`\n\nThe `handleWrapperStyle` property is used to override the style of resize handles wrapper.\n\n#### `handleWrapperClass?: string;`\n\nThe `handleWrapperClass` property is used to override the className of resize handles wrapper.\n\n#### `enable?: ?Enable;`\n\nThe `enable` property is used to set the resizable permission of a resizable component.\n\nThe permission of `top`, `right`, `bottom`, `left`, `topRight`, `bottomRight`, `bottomLeft`, `topLeft` direction resizing.\nIf omitted, all resizer are enabled.\nIf you want to permit only right direction resizing, set `{ top:false, right:true, bottom:false, left:false, topRight:false, bottomRight:false, bottomLeft:false, topLeft:false }`.\n\n#### `onResizeStart?: ResizeStartCallBack;`\n\n`ResizeStartCallBack` type is below.\n\n```\ntype ResizeStartCallback = (\n  e: SyntheticMouseEvent<HTMLDivElement> | SyntheticTouchEvent<HTMLDivElement>,\n  dir: Direction,\n  refToElement: React.ElementRef<'div'>,\n) => void;\n```\n\nCalls when resizable component resize start.\n\n#### `onResize?: ResizeCallback;`\n\n### Basic\n\n`ResizeCallback` type is below.\n\n```\ntype ResizeCallback = (\n  event: MouseEvent | TouchEvent,\n  direction: Direction,\n  refToElement: React.ElementRef<'div'>,\n  delta: NumberSize,\n) => void;\n```\n\nCalls when resizable component resizing.\n\n#### `onResizeStop?: ResizeCallback;`\n\n`ResizeCallback` type is below.\n\n```\ntype ResizeCallback = (\n  event: MouseEvent | TouchEvent,\n  direction: Direction,\n  refToElement: React.ElementRef<'div'>,\n  delta: NumberSize,\n) => void;\n```\n\nCalls when resizable component resize stop.\n\n## method\n\n#### `updateSize(object size)`\n\nUpdate component size.\n`grid` ,`max/minWidth`, `max/minHeight` props is ignored, when this method called.\n\n- for example\n\n``` js\nclass YourComponent extends Component {\n\n  ...\n\n  update() {\n    this.resizable.updateSize({ width: 200, height: 300 });\n  }\n\n  render() {\n    return (\n      <Resizable ref={c => { this.resizable = c; }}>\n        example\n      </Resizable>\n    );\n  }\n\n  ...\n}\n```\n\n\n## Contribute\n\nIf you have a feature request, please add it as an issue or make a pull request.\n\nIf you have a bug to report, please reproduce the bug in [WebpackBin](\nhttps://www.webpackbin.com/bins/-Kvnrpd3GSG6-z0tpgH_) to help us easily isolate it.\n\n\n\n## Test\n\n``` sh\nnpm test\n```\n\n## Related\n\n- [raect-rnd](https://github.com/bokuweb/react-rnd)\n- [raect-sortable-pane](https://github.com/bokuweb/react-sortable-pane)\n\n## Changelog\n\n- Additional height and width with lockAspectRatio #163\n\n#### v4.0.3\n\n- Use ES5-compatible prototype methods #160\n\n#### v4.0.2\n\n- Fix using right click on resize #152\n- Add workaround when base Node not found.\n\n#### v4.0.1\n\n- Update index.d.ts, Fixes #153\n\n#### v4.0.0\n\n- Remove `width` and `height`.\n- Add `defaultSize` and `size`,\n\n#### v3.0.0\n\n- Fix flowtype annotation.\n- Remove `extendsProps`.\n\nYou can add extendsProps as follows.\n\n```\n<Resizable data-foo=\"foo\" />\n```\n\n#### v3.0.0-beta.3\n\n- fix typo. `ResizeStartCallBack` -> `ResizeStartCallback`.\n\n#### v3.0.0-beta.2\n\n- export `ResizeDirection` type.\n- rename `Callback` to `ResizeCallback`.\n\n#### v3.0.0-beta.1\n\n- Fix flow filename.\n- Change logo\n\n#### v3.0.0-beta.0\n\n- Change package name, `react-resizable-box` -> `re-resizable`.\n- Add `handleWrapperStyle` and `handleWrapperClass` props.\n- Change behavior that is set percentage size to width or height as props.\n- Support percentage max/min size.\n- Use rollup.\n- Fix props name.\n  - `handersClasses` -> `handleClasses`\n  - `handersStyles` -> `handleStyles`\n\n#### v2.1.0\n\n- Remove `shouldUpdateComponent` (#135).\n- Remove `lodash.isEqual`.\n\n#### v2.0.6\n\n- Update README.\n\n#### v2.0.5\n\n- Fix remove event listener\n\n#### v2.0.4\n\n- Fix receiveProps. (related #85)\n\n#### v2.0.3\n\n- Update dev dependencies.\n- Modify index.js.flow.\n\n#### v2.0.2\n\n- Remove offset state.\n- Use `border-box`.\n- Fix boundary size.\n\n#### v2.0.1\n\n- Add offset state for rnd component.\n\n#### v2.0.0\n\n- Update index.js.flow\n\n#### v2.0.0-rc.2\n\n- Use `flowtype`.\n- Change callback args.\n- Change some props name.\n  - isResizable => enable.\n  - customClass => className.\n  - customStyle => style.\n  - handleStyle => handlerStyles.\n  - handleClass => handlerClasses.\n- Add bounds feature.\n- Fix min/max size checker when aspect ratio locked.\n\n#### v1.8.4\n\n- Fix cursor\n\n#### v1.8.3\n\n- Fix npm readme\n\n#### v1.8.2\n\n- Add index.d.ts.\n- Fix resize glitch when aspct ratio locked.\n\n#### v1.8.1\n\n- Fixing issue on resizing with touch events\n\n#### v1.8.0\n\n- Add `extendsProps` prop to other props (e.g. `data-*`, `aria-*`, and other ).\n\n#### v1.7.0\n\n- Support siver side rendering #43\n\n#### v1.6.0\n\n- Add `updateSize` method.\n\n#### v1.5.1\n\n- Add `lockAspectRatio` property.\n\n#### v1.4.3\n\n- Avoid unnecessary rendering on resizer\n\n#### v1.4.2\n\n- Fix onTouchStart bind timing to avoid re-rendering\n\n#### v1.4.1\n\n- Support preserving auto size #40 (thanks @noradaiko)\n\n#### v1.4.0\n\n- Add `grid` props to snap grid. (thanks @paulyoung)\n\n#### v1.3.0\n\n- Add `userSelect: none` when resize get srated.\n- Add shouldComponentUpdate.\n- Add handle custom className.\n\n#### v1.2.0\n\n- Add module export plugin for `require`.\n\n#### v1.1.3\n\n- Update document.\n\n#### v1.1.2\n\n- Add size argument to resizeStart callback.\n- Fix bug\n\n#### v1.1.1\n\n- Fix delta value bug\n\n#### v1.1.0\n\n- Add delta argument to onResize and onResizeStop callback.\n\n#### v1.0.0\n\n- Rename and add resizer.\n\n#### v0.4.2\n\n- Support react v15\n- ESLint run when push\n\n#### v0.4.1\n\n- Add mousedown event object to `onResizeStart` callback argument.\n\n#### v0.4.0\n\n- Support `'px'` and `'%'` for width and height props.\n\n\n## License\n\nThe MIT License (MIT)\n\nCopyright (c) 2017 bokuweb\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bokuweb/react-resizable-box.git"
+  },
+  "scripts": {
+    "build": "npm-run-all --parallel build:prod:*",
+    "build-storybook": "build-storybook",
+    "build:prod:es5": "rollup -c scripts/prod.es5.js",
+    "build:prod:main": "rollup -c scripts/prod.js",
+    "build:prod:umd": "rollup -c scripts/prod.umd.js",
+    "deploy": "npm run build-storybook && gh-pages -d storybook-static",
+    "flow": "flow",
+    "flow-copy": "flow-copy-source -v src lib && cp lib/index.js.flow lib/index.es5.js.flow ",
+    "lint": "eslint src",
+    "prepublish": "npm run build && npm run flow && npm run flow-copy",
+    "start": "npm-run-all --parallel storybook",
+    "storybook": "start-storybook -p 6066",
+    "test": "NODE_ENV='test' avaron test --renderer",
+    "test:ci": "npm run flow && npm run build"
+  },
+  "title": "re-resizable",
+  "typings": "./index.d.ts",
+  "version": "4.1.2"
 }

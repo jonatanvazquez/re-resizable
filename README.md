@@ -8,47 +8,29 @@
 <img src="https://img.shields.io/npm/v/re-resizable.svg" alt="Build Status" /></a>
 <a href="https://www.npmjs.com/package/re-resizable">
 <img src="https://img.shields.io/npm/dm/re-resizable.svg" /></a>
-<a href="https://renovatebot.com/">
-<img src="https://img.shields.io/badge/renovate-enabled-brightgreen.svg" /></a>
-<a href="https://github.com/prettier/prettier">
-<img src="https://img.shields.io/badge/styled_with-prettier-ff69b4.svg" /></a>
-<a href="https://bokuweb.github.io/re-resizable/">
-<img src="https://github.com/storybooks/press/blob/master/badges/storybook.svg" /></a>
+<a href="https://greenkeeper.io/">
+<img src="https://badges.greenkeeper.io/bokuweb/re-resizable.svg" /></a>
 </p>
 
 ## Table of Contents
 
-- [Screenshot](#Screenshot)
-_ [Live Demo](#live-demo)
-  - [Storybook](#storybook)
-  - [CodeSandbox](#codesandbox)
+- [Demo](#Demo)
 - [Install](#install)
 - [Usage](#usage)
 - [Props](#props)
-- [Instance API](#instance-api)
-  - [updateSize(size: { width: number | string, height: number | string }): void](#updateSize-void)
+- [Method](#method)
 - [Test](#test)
 - [Related](#related)
+- [Changelog](#changelog)
+- [License](#license)
 
-## Screenshot
+## Demo
 
 ![screenshot](https://github.com/bokuweb/re-resizable/blob/master/docs/screenshot.gif?raw=true)
 
-## Live Demo
-
-### Storybook
-
-[Storybook](http://bokuweb.github.io/re-resizable/)
-
-### CodeSandbox
-
-[![Edit xp9p7272m4](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/xp9p7272m4)  
-[CodeSandbox](https://codesandbox.io/s/xp9p7272m4)  
-[CodeSandbox(TypeScript)](https://codesandbox.io/s/1vwo2p4l64)
-
 ## Install
 
-```sh
+``` sh
 $ npm install --save re-resizable
 ```
 
@@ -56,7 +38,7 @@ $ npm install --save re-resizable
 
 ### Example with `defaultSize`
 
-```javascript
+``` javascript
 <Resizable
   defaultSize={{
     width:320,
@@ -69,9 +51,7 @@ $ npm install --save re-resizable
 
 ### Example with `size`
 
-If you use `size` props, please manage state by yourself.
-
-```javascript
+``` javascript
 <Resizable
   size={{ width: this.state.width, height: this.state.height }}
   onResizeStop={(e, direction, ref, d) => {
@@ -112,11 +92,11 @@ The `style` property is used to set the custom `style` of a resizable component.
 
 #### `minWidth?: number | string;`
 
-The `minWidth` property is used to set the minimum width of a resizable component. Defaults to 10px.
+The `minWidth` property is used to set the minimum width of a resizable component.
 
 #### `minHeight?: number | string;`
 
-The `minHeight` property is used to set the minimum height of a resizable component. Defaults to 10px.
+The `minHeight` property is used to set the minimum height of a resizable component.
 
 #### `maxWidth?: number | string;`
 
@@ -129,14 +109,6 @@ The `maxHeight` property is used to set the maximum height of a resizable compon
 #### `grid?: [number, number];`
 
 The `grid` property is used to specify the increments that resizing should snap to. Defaults to `[1, 1]`.
-
-#### `snap?: { x?: Array<number>, y?: Array<number> };`
-
-The `snap` property is used to specify absolute pixel values that resizing should snap to. `x` and `y` are both optional, allowing you to only include the axis you want to define. Defaults to `null`.
-
-#### `resizeRatio?: number | string;`
-
-The `resizeRatio` property is used to set the number of pixels the resizable component scales by compared to the number of pixels the mouse/touch moves. Defaults to `1` (for a 1:1 ratio). The number set is the left side of the ratio, `2` will give a 2:1 ratio.
 
 #### `lockAspectRatio?: boolean | number;`
 
@@ -173,10 +145,6 @@ but other handle will still use the default styles.
 
 The `handleClasses` property is used to set the className of one or more resize handles.
 
-#### `handleComponent?: HandleComponent;`
-
-The `handleComponent` property is used to pass a React Component to be rendered as one or more resize handle. For example, this could be used to use an arrow icon as a handle..
-
 #### `handleWrapperStyle?: { [key: string]: string };`
 
 The `handleWrapperStyle` property is used to override the style of resize handles wrapper.
@@ -197,11 +165,11 @@ If you want to permit only right direction resizing, set `{ top:false, right:tru
 
 `ResizeStartCallBack` type is below.
 
-```javascript
+```
 type ResizeStartCallback = (
   e: SyntheticMouseEvent<HTMLDivElement> | SyntheticTouchEvent<HTMLDivElement>,
-  dir: ResizableDirection,
-  refToElement: HTMLDivElement,
+  dir: Direction,
+  refToElement: React.ElementRef<'div'>,
 ) => void;
 ```
 
@@ -209,19 +177,15 @@ Calls when resizable component resize start.
 
 #### `onResize?: ResizeCallback;`
 
-#### `scale?: number`;
-
-The `scale` property is used in the scenario where the resizable element is a descendent of an element using css scaling (e.g. - `transform: scale(0.5)`).
-
 ### Basic
 
 `ResizeCallback` type is below.
 
-```javascript
+```
 type ResizeCallback = (
   event: MouseEvent | TouchEvent,
-  direction: ResizableDirection,
-  refToElement: HTMLDivElement,
+  direction: Direction,
+  refToElement: React.ElementRef<'div'>,
   delta: NumberSize,
 ) => void;
 ```
@@ -232,31 +196,30 @@ Calls when resizable component resizing.
 
 `ResizeCallback` type is below.
 
-```javascript
+```
 type ResizeCallback = (
   event: MouseEvent | TouchEvent,
-  direction: ResizableDirection,
-  refToElement: HTMLDivElement,
+  direction: Direction,
+  refToElement: React.ElementRef<'div'>,
   delta: NumberSize,
 ) => void;
 ```
 
 Calls when resizable component resize stop.
 
-## Instance API
+## method
 
-#### * `updateSize(size: { width: number | string, height: number | string }): void`
+#### `updateSize(object size)`
 
 Update component size.
-
-`grid`, `snap`, `max/minWidth`, `max/minHeight` props is ignored, when this method called.
+`grid` ,`max/minWidth`, `max/minHeight` props is ignored, when this method called.
 
 - for example
 
-```javascript
+``` js
 class YourComponent extends Component {
 
-  // ...
+  ...
 
   update() {
     this.resizable.updateSize({ width: 200, height: 300 });
@@ -270,15 +233,19 @@ class YourComponent extends Component {
     );
   }
 
-  // ...
+  ...
 }
 ```
+
 
 ## Contribute
 
 If you have a feature request, please add it as an issue or make a pull request.
 
-If you have a bug to report, please reproduce the bug in [CodeSandbox](https://codesandbox.io/s/ll587k677z) to help us easily isolate it.
+If you have a bug to report, please reproduce the bug in [WebpackBin](
+https://www.webpackbin.com/bins/-Kvnrpd3GSG6-z0tpgH_) to help us easily isolate it.
+
+
 
 ## Test
 
@@ -288,5 +255,218 @@ npm test
 
 ## Related
 
-- [react-rnd](https://github.com/bokuweb/react-rnd)
-- [react-sortable-pane](https://github.com/bokuweb/react-sortable-pane)
+- [raect-rnd](https://github.com/bokuweb/react-rnd)
+- [raect-sortable-pane](https://github.com/bokuweb/react-sortable-pane)
+
+## Changelog
+
+- Additional height and width with lockAspectRatio #163
+
+#### v4.0.3
+
+- Use ES5-compatible prototype methods #160
+
+#### v4.0.2
+
+- Fix using right click on resize #152
+- Add workaround when base Node not found.
+
+#### v4.0.1
+
+- Update index.d.ts, Fixes #153
+
+#### v4.0.0
+
+- Remove `width` and `height`.
+- Add `defaultSize` and `size`,
+
+#### v3.0.0
+
+- Fix flowtype annotation.
+- Remove `extendsProps`.
+
+You can add extendsProps as follows.
+
+```
+<Resizable data-foo="foo" />
+```
+
+#### v3.0.0-beta.3
+
+- fix typo. `ResizeStartCallBack` -> `ResizeStartCallback`.
+
+#### v3.0.0-beta.2
+
+- export `ResizeDirection` type.
+- rename `Callback` to `ResizeCallback`.
+
+#### v3.0.0-beta.1
+
+- Fix flow filename.
+- Change logo
+
+#### v3.0.0-beta.0
+
+- Change package name, `react-resizable-box` -> `re-resizable`.
+- Add `handleWrapperStyle` and `handleWrapperClass` props.
+- Change behavior that is set percentage size to width or height as props.
+- Support percentage max/min size.
+- Use rollup.
+- Fix props name.
+  - `handersClasses` -> `handleClasses`
+  - `handersStyles` -> `handleStyles`
+
+#### v2.1.0
+
+- Remove `shouldUpdateComponent` (#135).
+- Remove `lodash.isEqual`.
+
+#### v2.0.6
+
+- Update README.
+
+#### v2.0.5
+
+- Fix remove event listener
+
+#### v2.0.4
+
+- Fix receiveProps. (related #85)
+
+#### v2.0.3
+
+- Update dev dependencies.
+- Modify index.js.flow.
+
+#### v2.0.2
+
+- Remove offset state.
+- Use `border-box`.
+- Fix boundary size.
+
+#### v2.0.1
+
+- Add offset state for rnd component.
+
+#### v2.0.0
+
+- Update index.js.flow
+
+#### v2.0.0-rc.2
+
+- Use `flowtype`.
+- Change callback args.
+- Change some props name.
+  - isResizable => enable.
+  - customClass => className.
+  - customStyle => style.
+  - handleStyle => handlerStyles.
+  - handleClass => handlerClasses.
+- Add bounds feature.
+- Fix min/max size checker when aspect ratio locked.
+
+#### v1.8.4
+
+- Fix cursor
+
+#### v1.8.3
+
+- Fix npm readme
+
+#### v1.8.2
+
+- Add index.d.ts.
+- Fix resize glitch when aspct ratio locked.
+
+#### v1.8.1
+
+- Fixing issue on resizing with touch events
+
+#### v1.8.0
+
+- Add `extendsProps` prop to other props (e.g. `data-*`, `aria-*`, and other ).
+
+#### v1.7.0
+
+- Support siver side rendering #43
+
+#### v1.6.0
+
+- Add `updateSize` method.
+
+#### v1.5.1
+
+- Add `lockAspectRatio` property.
+
+#### v1.4.3
+
+- Avoid unnecessary rendering on resizer
+
+#### v1.4.2
+
+- Fix onTouchStart bind timing to avoid re-rendering
+
+#### v1.4.1
+
+- Support preserving auto size #40 (thanks @noradaiko)
+
+#### v1.4.0
+
+- Add `grid` props to snap grid. (thanks @paulyoung)
+
+#### v1.3.0
+
+- Add `userSelect: none` when resize get srated.
+- Add shouldComponentUpdate.
+- Add handle custom className.
+
+#### v1.2.0
+
+- Add module export plugin for `require`.
+
+#### v1.1.3
+
+- Update document.
+
+#### v1.1.2
+
+- Add size argument to resizeStart callback.
+- Fix bug
+
+#### v1.1.1
+
+- Fix delta value bug
+
+#### v1.1.0
+
+- Add delta argument to onResize and onResizeStop callback.
+
+#### v1.0.0
+
+- Rename and add resizer.
+
+#### v0.4.2
+
+- Support react v15
+- ESLint run when push
+
+#### v0.4.1
+
+- Add mousedown event object to `onResizeStart` callback argument.
+
+#### v0.4.0
+
+- Support `'px'` and `'%'` for width and height props.
+
+
+## License
+
+The MIT License (MIT)
+
+Copyright (c) 2017 bokuweb
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

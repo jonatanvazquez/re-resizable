@@ -1,17 +1,15 @@
-// Type definitions for re-resizable 4.6
-// Project: https://github.com/bokuweb/re-resizable
+// Type definitions for react-resizable-box 2.0
+// Project: https://github.com/bokuweb/react-resizable-box
 // Definitions by: Kalle Ott <https://github.com/kaoDev>
-// Definitions: https://github.com/kaoDev/re-resizable
-// TypeScript Version: 2.9.1
+// Definitions: https://github.com/kaoDev/react-resizable-box
+// TypeScript Version: 2.2
 
 import * as React from 'react';
 
-export type ResizableDirection = 'top' | 'right' | 'bottom' | 'left' | 'topRight' | 'bottomRight' | 'bottomLeft' | 'topLeft';
-
 export interface ResizableState {
-  width: number | string;
-  height: number | string;
-  direction?: ResizableDirection;
+  width?: number | string;
+  height?: number | string;
+  direction?: string;
   original?: {
     x: number,
     y: number,
@@ -19,54 +17,36 @@ export interface ResizableState {
     height: number,
   },
   isResizing?: boolean;
-  resizeCursor: string,
-}
-
-export type NumberSize = {
-  width: number;
-  height: number;
 }
 
 export type Size = {
-  width: string | number,
-  height: string | number,
-};
+  width: number;
+  height: number;
+}
 
 export type CSSSize = {
   width: string;
   height: string;
 }
 
-export type HandleComponent = {
-  top?: React.ReactNode,
-  right?: React.ReactNode,
-  bottom?: React.ReactNode,
-  left?: React.ReactNode,
-  topRight?: React.ReactNode,
-  bottomRight?: React.ReactNode,
-  bottomLeft?: React.ReactNode,
-  topLeft?: React.ReactNode,
-};
-
-
-export type ResizeCallback = (
+export type ResizeHandler = (
   event: MouseEvent | TouchEvent,
-  direction: ResizableDirection,
-  elementRef: HTMLDivElement,
-  delta: NumberSize,
+  dir: string,
+  refToElement: HTMLElement,
+  delta: Size,
 ) => void;
 
-export type ResizeStartCallback = (
-  e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>,
-  dir: ResizableDirection,
-  elementRef: HTMLDivElement,
-  delta: NumberSize,
+export type ResizeStartCallBack = (
+  e: React.MouseEvent<any> | React.TouchEvent<any>,
+  dir: string,
+  refToElement: HTMLElement,
+  delta: Size,
 ) => void;
 
-export interface ResizableProps extends React.HTMLAttributes<HTMLDivElement> {
-  onResizeStart?: ResizeStartCallback,
-  onResize?: ResizeCallback,
-  onResizeStop?: ResizeCallback,
+export interface ResizableProps {
+  onResizeStop?: ResizeHandler;
+  onResizeStart?: ResizeStartCallBack;
+  onResize?: ResizeHandler;
   style?: React.CSSProperties;
   handleStyles?: {
     top?: React.CSSProperties,
@@ -89,52 +69,50 @@ export interface ResizableProps extends React.HTMLAttributes<HTMLDivElement> {
     topLeft?: string,
   },
   enable?: {
-    top?: boolean,
-    right?: boolean,
-    bottom?: boolean,
-    left?: boolean,
-    topRight?: boolean,
-    bottomRight?: boolean,
-    bottomLeft?: boolean,
-    topLeft?: boolean,
+    top: boolean,
+    right: boolean,
+    bottom: boolean,
+    left: boolean,
+    topRight: boolean,
+    bottomRight: boolean,
+    bottomLeft: boolean,
+    topLeft: boolean,
   },
   className?: string,
   defaultSize?: {
-    width?: string | number,
-    height?: string | number,
+    width: string | number,
+    height: string | number,
   },
   size?: {
-    width?: string | number,
-    height?: string | number,
-  },
+    width: string | number,
+    height: string | number,
+  },  
   minWidth?: number | string,
   minHeight?: number | string,
   maxWidth?: number | string,
   maxHeight?: number | string,
   grid?: number[],
-  snap?: {
-    x?: number[],
-    y?: number[],
-  },
   bounds?: 'parent' | 'window' | HTMLElement,
-  lockAspectRatio?: boolean | number,
-  lockAspectRatioExtraWidth?: number,
-  lockAspectRatioExtraHeight?: number,
-  handleWrapperStyle?: React.CSSProperties,
-  handleWrapperClass?: string,
-  handleComponent?: HandleComponent,
-  scale?: number
+  lockAspectRatio?: boolean,
 }
 
 export default class Resizable extends React.Component<ResizableProps, ResizableState> {
 
   resizable: HTMLElement;
-  
 
-  size: {
-    width: number,
-    height: number,
-  };
+  size: Size;
+
+  onTouchMove(event: React.TouchEvent<any>): void;
+
+  onMouseMove(event: MouseEvent | TouchEvent): void;
+
+  onMouseUp(event: MouseEvent | TouchEvent): void;
+
+  onResizeStart(event: React.TouchEvent<any> | React.MouseEvent<any>, direction: string): void
+
+  setSize(size: Size): void;
+
+  getBoxStyle(): CSSSize;
 
   updateSize({ width, height }: Size): void;
 }
